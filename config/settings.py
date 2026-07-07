@@ -133,7 +133,7 @@ DATABASES = {
         "NAME": env('DB_NAME'),
         "USER": env('DB_USER'),
         "PASSWORD": env('DB_PASSWORD'),
-        "HOST": env('DB_HOST'),
+        "HOST": 'db',
         "PORT": env('DB_PORT'),
     }
 }
@@ -158,6 +158,9 @@ CACHES = {
         }
     }
 }
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "sessions"
 
 
 # Password validation
@@ -197,4 +200,4 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
